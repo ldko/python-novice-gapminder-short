@@ -151,6 +151,7 @@ print(str(1) + '2')
 *   Integers and floating-point numbers can be mixed in arithmetic.
 *   Python 3 automatically converts integers to floats as needed.
 *   The result of the following calculation with an `int` and `float` is a `float`.
+
 ~~~
 print('half is', 1 / 2.0)
 print('three squared is', 3.0 ** 2)
