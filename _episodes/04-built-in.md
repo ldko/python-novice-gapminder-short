@@ -85,6 +85,9 @@ print(min('a', 'A', '0'))
 ~~~
 {: .output}
 
+*   `ord` is a built-in that returns the Unicode code point for a one-character string, which
+    are the values used in comparing strings.
+
 ## Functions may only work for certain (combinations of) arguments.
 
 *   `max` and `min` must be given at least one argument.
@@ -197,79 +200,6 @@ round(number, ndigits=None)
     * Hold down <kbd>Shift</kbd>, and press <kbd>Tab</kbd>.
     * Do this several times to expand the information returned.
 *   Option 2: Type the function name in a cell with a question mark after it. Then run the cell.
-
-
-## Python reports a syntax error when it can't understand the source of a program.
-
-*   Won't even try to run the program if it can't be parsed.
-
-~~~
-# Forgot to close the quote marks around the string.
-name = 'Feng
-~~~
-{: .language-python}
-~~~
-  File "<ipython-input-56-f42768451d55>", line 2
-    name = 'Feng
-                ^
-SyntaxError: EOL while scanning string literal
-~~~
-{: .error}
-
-~~~
-# An extra '=' in the assignment.
-age = = 52
-~~~
-{: .language-python}
-~~~
-  File "<ipython-input-57-ccc3df3cf902>", line 2
-    age = = 52
-          ^
-SyntaxError: invalid syntax
-~~~
-{: .error}
-
-*   Look more closely at the error message:
-
-~~~
-print("hello world"
-~~~
-{: .language-python}
-~~~
-  File "<ipython-input-6-d1cc229bf815>", line 1
-    print ("hello world"
-                        ^
-SyntaxError: unexpected EOF while parsing
-~~~
-{: .error}
-
-*   The message indicates a problem on first line of the input ("line 1").
-    *   In this case the "ipython-input" section of the file name tells us that
-        we are working with input into IPython,
-        the Python interpreter used by the Jupyter Notebook.
-*   The `-6-` part of the filename indicates that
-    the error occurred in cell 6 of our Notebook.
-*   Next is the problematic line of code,
-    indicating the problem with a `^` pointer.
-
-## <a name='runtime-error'></a> Python reports a runtime error when something goes wrong while a program is executing.
-
-~~~
-age = 53
-remaining = 100 - aege # mis-spelled 'age'
-~~~
-{: .language-python}
-~~~
-NameError                                 Traceback (most recent call last)
-<ipython-input-59-1214fb6c55fc> in <module>
-      1 age = 53
-----> 2 remaining = 100 - aege # mis-spelled 'age'
-
-NameError: name 'aege' is not defined
-~~~
-{: .error}
-
-*   Fix syntax errors by reading the source and runtime errors by tracing execution.
 
 > ## What Happens When
 >

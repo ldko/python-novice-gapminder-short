@@ -114,6 +114,25 @@ NameError: name 'last_name' is not defined
 *   The last line of an error message is usually the most informative.
 *   We will look at error messages in detail [later]({{ page.root }}/15-scope/#reading-error-messages).
 
+## Syntax errors are another common error seen.
+*   Python reports a syntax error when it can't understand the source of a program.
+*   Won't even try to run the program if it can't be parsed.
+
+~~~
+# Forgetting an end quote causes a syntax error.
+last_name = 'Feng
+~~~
+{: .language-python}
+~~~
+  File "<ipython-input-56-f42768451d55>", line 2
+    name = 'Feng
+                ^
+SyntaxError: EOL while scanning string literal
+~~~
+{: .error}
+
+*   Look more closely at the error message to see what went wrong.
+
 > ## Variables Persist Between Cells
 >
 > Be aware that it is the *order* of execution of cells that is important in a Jupyter notebook, not the order
