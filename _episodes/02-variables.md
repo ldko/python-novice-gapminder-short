@@ -13,8 +13,6 @@ keypoints:
 - "Variables persist between cells."
 - "Variables must be created before they are used."
 - "Variables can be used in calculations."
-- "Use an index to get a single character from a string."
-- "Use a slice to get a substring."
 - "Use the built-in function `len` to find the length of a string."
 - "Python is case-sensitive."
 - "Use meaningful variable names."
@@ -39,6 +37,27 @@ keypoints:
     * are **case sensitive** (age, Age and AGE are three different variables)
 *   Variable names that start with underscores like `__alistairs_real_age` have a special meaning
     so we won't do that until we understand the convention.
+
+## Python is case-sensitive.
+
+*   Python thinks that upper- and lower-case letters are different,
+    so `Name` and `name` are different variables.
+*   There are conventions for using upper-case letters at the start of variable names so we will use lower-case letters for now.
+
+## Use meaningful variable names.
+
+*   Python doesn't care what you call variables as long as they obey the rules
+    (alphanumeric characters and the underscore).
+
+~~~
+flabadab = 42
+ewr_422_yY = 'Ahmed'
+print(ewr_422_yY, 'is', flabadab, 'years old')
+~~~
+{: .language-python}
+
+*   Use meaningful variable names to help other people understand what the program does.
+*   The most important "other person" is your future self.
 
 ## Use `print` to display values.
 
@@ -120,53 +139,6 @@ Age in three years: 45
 ~~~
 {: .output}
 
-## Use an index to get a single character from a string.
-
-*   The characters (individual letters, numbers, and so on) in a string are
-    ordered. For example, the string `'AB'` is not the same as `'BA'`. Because of
-    this ordering, we can treat the string as a list of characters.
-*   Each position in the string (first, second, etc.) is given a number. This
-    number is called an **index** or sometimes a subscript.
-*   Indices are numbered from 0.
-*   Use the position's index in square brackets to get the character at that
-    position.
-
-![an illustration of indexing](../fig/2_indexing.svg)
-
-~~~
-atom_name = 'helium'
-print(atom_name[0])
-~~~
-{: .language-python}
-~~~
-h
-~~~
-{: .output}
-
-## Use a slice to get a substring.
-
-*   A part of a string is called a **substring**. A substring can be as short as a
-    single character.
-*   An item in a list is called an element. Whenever we treat a string as if it
-    were a list, the string's elements are its individual characters.
-*   A slice is a part of a string (or, more generally, a part of any list-like thing).
-*   We take a slice with the notation `[start:stop]`, where `start` is the integer
-    index of the first element we want and `stop` is the integer index of
-    the element _just after_ the last element we want.
-*   The difference between `stop` and `start` is the slice's length.
-*   Taking a slice does not change the contents of the original string. Instead,
-    taking a slice returns a copy of part of the original string.
-
-~~~
-atom_name = 'sodium'
-print(atom_name[0:3])
-~~~
-{: .language-python}
-~~~
-sod
-~~~
-{: .output}
-
 ## Use the built-in function `len` to find the length of a string.
 
 ~~~
@@ -180,27 +152,6 @@ print(len('helium'))
 
 *   Nested functions are evaluated from the inside out,
      like in mathematics.
-
-## Python is case-sensitive.
-
-*   Python thinks that upper- and lower-case letters are different,
-    so `Name` and `name` are different variables.
-*   There are conventions for using upper-case letters at the start of variable names so we will use lower-case letters for now.
-
-## Use meaningful variable names.
-
-*   Python doesn't care what you call variables as long as they obey the rules
-    (alphanumeric characters and the underscore).
-
-~~~
-flabadab = 42
-ewr_422_yY = 'Ahmed'
-print(ewr_422_yY, 'is', flabadab, 'years old')
-~~~
-{: .language-python}
-
-*   Use meaningful variable names to help other people understand what the program does.
-*   The most important "other person" is your future self.
 
 > ## Swapping Values
 >
@@ -312,55 +263,5 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 > >
 > > `minutes` is better because `min` might mean something like "minimum"
 > > (and actually is an existing built-in function in Python that we will cover later).
-> {: .solution}
-{: .challenge}
-
-> ## Slicing practice
->
-> What does the following program print?
->
-> ~~~
-> atom_name = 'carbon'
-> print('atom_name[1:3] is:', atom_name[1:3])
-> ~~~
-> {: .language-python}
->
-> > ## Solution
-> >
-> > ~~~
-> > atom_name[1:3] is: ar
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
-> ## Slicing concepts
->
-> Given the following string:
->
-> ~~~
-> species_name = "Acacia buxifolia"
-> ~~~
-> {: .language-python}
->
-> What would these expressions return?
->
-> 1.  `species_name[2:8]`
-> 2.  `species_name[11:]` (without a value after the colon)
-> 3.  `species_name[:4]` (without a value before the colon)
-> 4.  `species_name[:]` (just a colon)
-> 5.  `species_name[11:-3]`
-> 6.  `species_name[-5:-3]`
-> 7.  What happens when you choose a `stop` value which is out of range? (i.e., try `species_name[0:20]` or `species_name[:103]`)
->
-> > ## Solutions
-> >
-> > 1.  `species_name[2:8]` returns the substring `'acia b'`
-> > 2.  `species_name[11:]` returns the substring `'folia'`, from position 11 until the end
-> > 3.  `species_name[:4]` returns the substring `'Acac'`, from the start up to but not including position 4
-> > 4.  `species_name[:]` returns the entire string `'Acacia buxifolia'`
-> > 5.  `species_name[11:-3]` returns the substring `'fo'`, from the 11th position to the third last position
-> > 6.  `species_name[-5:-3]` also returns the substring `'fo'`, from the fifth last position to the third last
-> > 7.  If a part of the slice is out of range, the operation does not fail. `species_name[0:20]` gives the same result as `species_name[0:]`, and `species_name[:103]` gives the same result as `species_name[:]`
 > {: .solution}
 {: .challenge}
