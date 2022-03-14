@@ -59,6 +59,19 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 *   Use meaningful variable names to help other people understand what the program does.
 *   The most important "other person" is your future self.
 
+## Use comments to add documentation to programs.
+
+*    If you want to add information to explain what your code is doing, you can use the `#` to
+     indicate a comment.
+~~~
+# This sentence isn't executed by Python.
+flabadab = 42   #  current age - anything after '#' is ignored.
+~~~
+{: .language-python}
+
+*    While using meaningful variable names helps avoid needing to explain with comments,
+     if it is difficult to come up with a relatively short relevant variable name, this can help.
+
 ## Use `print` to display values.
 
 *   Python has a built-in function called `print` that prints things as text.
