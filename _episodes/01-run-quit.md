@@ -21,11 +21,13 @@ The data we will be using is taken from the
 [gapminder](https://en.wikipedia.org/wiki/Gapminder_Foundation) dataset.
 To obtain it, download and unzip the file
 [python-novice-gapminder-data.zip]({{page.root}}/files/python-novice-gapminder-data.zip).
-In order to follow the presented material, you should put the resulting `data` directory/folder
+**In order to follow the presented material, you should put the resulting `data` directory/folder
 in your home folder,
 and you should launch the JupyterLab
-server in the same directory that you put the `data` directory
+server in the same directory that you put the `data` directory**
 (see [Starting JupyterLab]({{ page.root }}/01-run-quit/#starting-jupyterlab)).
+
+## Why JupyterLab
 
 There are many ways to write and run Python code, such as using a text editor to create and edit a
 file with Python code in it then running the file at the commandline
