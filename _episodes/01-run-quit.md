@@ -6,23 +6,21 @@ questions:
 - "How can I run Python programs?"
 objectives:
 - "Launch the JupyterLab server." 
-- "Create a new Python script." 
 - "Create a Jupyter notebook."
 - "Shutdown the JupyterLab server."
-- "Understand the difference between a Python script and a Jupyter notebook."
-- "Create Markdown cells in a notebook."
 - "Create and run Python cells in a notebook."
 keypoints:
-- "Python scripts are plain text files."
 - "Use the Jupyter Notebook for editing and running Python."
 - "The Notebook has Command and Edit modes."
 - "Use the keyboard and mouse to select and edit cells."
-- "The Notebook will turn Markdown into pretty-printed documentation."
-- "Markdown does most of what HTML does."
 ---
 
-Many software developers will often use an integrated development environment (IDE) or a 
-text editor to create and edit their Python programs which can be executed through the IDE or command line directly. While this is a common approach, we are going to use the [Jupyter Notebook][jupyter] via [JupyterLab][jupyterlab] for the remainder of this workshop.
+There are many ways to write and run Python code, such as using a text editor to create and edit a
+file with Python code in it then running the file at the commandline
+(show file containing Python code).
+Another way is to run Python in the terminal (show launching interpreter).
+While these are common approach, we are going to use the [Jupyter Notebook][jupyter] via
+[JupyterLab][jupyterlab] for the remainder of this workshop.
 
 This has several advantages:
   *   You can easily type, edit, and copy and paste blocks of code.
@@ -37,33 +35,13 @@ Each notebook contains one or more cells that contain code, text, or images.
 
 ## Getting Started with JupyterLab
 
-JupyterLab is an application with a web-based user interface from [Project Jupyter][jupyter] that 
-enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals,
-and even custom components in a flexible, integrated, and extensible manner. JupyterLab requires a
-reasonably up-to-date browser (ideally a current version of Chrome, Safari, or Firefox); Internet
-Explorer versions 9 and below are *not* supported.
+JupyterLab is an application with a user interface you use in your browser.
+It enables us to work with Jupyter notebooks, text files, and terminals in an integrated manner.
 
 JupyterLab is included as part of the Anaconda Python distribution. If you have not already
 installed the Anaconda Python distribution, see [the setup instructions]({{ page.root }}{% link
 setup.md %})
 for installation instructions.
-
-Even though JupyterLab is a web-based application, JupyterLab runs locally on your machine and 
-does not require an internet connection.
-*   The JupyterLab server sends messages to your web browser.
-*   The JupyterLab server does the work and the web browser renders the result.
-*   You will type code into the browser and see the result when the web page talks to the 
-    JupyterLab server.
-
-> ## JupyterLab? What about Jupyter notebooks?
-> 
-> JupyterLab is the [next stage in the evolution of the Jupyter Notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
-> If you have prior experience working with Jupyter notebooks, then you will have a good idea of what to expect from JupyterLab. 
-> 
-> Experienced users of Jupyter notebooks interested in a more detailed discussion of the similarities and differences
-> between the JupyterLab and Jupyter notebook user interfaces can find more information in the 
-> [JupyterLab user interface documentation][jupyterlab-ui].
-{: .callout}
 
 ## Starting JupyterLab
 
@@ -119,9 +97,6 @@ default web browser after starting the JupyterLab server on either macOS or Wind
 </p>
 
 ## The JupyterLab Interface
-
-JupyterLab has many features found in traditional integrated development environments (IDEs) but 
-is focused on providing flexible building blocks for interactive, exploratory computing.
 
 The [JupyterLab Interface](https://jupyterlab.readthedocs.io/en/stable/user/interface.html) 
 consists of the Menu Bar, a collapsable Left Side Bar, and the Main Work Area which contains tabs 
@@ -188,14 +163,6 @@ Drag a tab to the center of a tab panel to move the tab to the panel. Subdivide 
 dragging a tab to the left, right, top, or bottom of the panel. The work area has a single current 
 activity. The tab for the current activity is marked with a colored top border (blue by default).
 
-## Creating a Python script
-
-*   To start writing a new Python program click the Text File icon under the *Other* header in the Launcher tab of the Main Work Area.
-    *   You can also create a new plain text file by selecting the *New -> Text File* from the *File* menu in the Menu Bar.
-*   To convert this plain text file to a Python program, select the *Save File As* action from the *File* menu in the Menu Bar and give your new text file a name that ends with the `.py` extension.
-    *   The `.py` extension lets everyone (including the operating system) know that this text file is a Python program.
-    *   This is convention, not a requirement.
-
 ## Creating a Jupyter Notebook
 
 To open a new notebook click the Python 3 icon under the *Notebook* header in the Launcher tab in 
@@ -220,29 +187,6 @@ more details, then see the [official notebook documentation][jupyterlab-notebook
 > *   But this format allows Jupyter to mix source code, text, and images, all in one file.
 {: .callout}
 
-> ## Arranging Documents into Panels of Tabs
->
-> In the JupyterLab Main Work Area you can arrange documents into panels of tabs. Here is an 
-> example from the [official documentation][jupyterlab].
-> 
-> <p align='center'>
->    <img alt="Multi-panel JupyterLab" src="../fig/0_multipanel_jupyterlab_screenshot.png" width="750"/>
-> </p>
->
-> First, create a text file, Python console, and terminal window and arrange them into three 
-> panels in the main work area. Next, create a notebook, terminal window, and text file and 
-> arrange them into three panels in the main work area. Finally, create your own combination of 
-> panels and tabs. What combination of panels and tabs do you think will be most useful for your 
-> workflow?
->
-> > ## Solution
-> >
-> > After creating the necessary tabs, you can drag one of the tabs to the center of a panel to 
-> > move the tab to the panel; next you can subdivide a tab panel by dragging a tab to the left, 
-> > right, top, or bottom of the panel.
-> {: .solution}
-{: .challenge}
-
 > ## Code vs. Text
 >
 > Jupyter mixes code and text in different types of blocks, called cells. We often use the term
@@ -263,216 +207,6 @@ more details, then see the [official notebook documentation][jupyterlab-notebook
     *   The <kbd>z</kbd> key will undo your last cell operation (which could be a deletion, creation, etc).
 *   All actions can be done using the menus, but there are lots of keyboard shortcuts to speed things up.
 
-> ## Command Vs. Edit
->
-> In the Jupyter notebook page are you currently in Command or Edit mode?  
-> Switch between the modes. 
-> Use the shortcuts to generate a new cell. 
-> Use the shortcuts to delete a cell.
-> Use the shortcuts to undo the last cell operation you performed.
->
-> > ## Solution
-> >
-> > Command mode has a grey border and Edit mode has a blue border. 
-> > Use <kbd>Esc</kbd> and <kbd>Return</kbd> to switch between modes. 
-> > You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>b</kbd> or <kbd>a</kbd>.
-> > You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>x</kbd>.
-> > You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>z</kbd>.
-> {: .solution}
-{: .challenge}
-
-### Use the keyboard and mouse to select and edit cells.
-
-*   Pressing the <kbd>Return</kbd> key turns the border blue and engages Edit mode, which allows 
-    you to type within the cell.
-*   Because we want to be able to write many lines of code in a single cell,
-    pressing the <kbd>Return</kbd> key when in Edit mode (blue) moves the cursor to the next line 
-    in the cell just like in a text editor.
-*   We need some other way to tell the Notebook we want to run what's in the cell.
-*   Pressing <kbd>Shift</kbd>+<kbd>Return</kbd> together will execute the contents of the cell.
-*   Notice that the <kbd>Return</kbd> and <kbd>Shift</kbd> keys on the right of the keyboard are 
-    right next to each other.
-
-### The Notebook will turn Markdown into pretty-printed documentation.
-
-*   Notebooks can also render [Markdown][markdown].
-    *   A simple plain-text format for writing lists, links, 
-        and other things that might go into a web page.
-    *   Equivalently, a subset of HTML that looks like what you'd send in an old-fashioned email.
-*   Turn the current cell into a Markdown cell by entering the Command mode (<kbd>Esc</kbd>/gray) 
-    and press the <kbd>M</kbd> key.
-*   `In [ ]:` will disappear to show it is no longer a code cell and you will be able to write in 
-    Markdown.
-*   Turn the current cell into a Code cell by entering the Command mode (<kbd>Esc</kbd>/gray) and 
-    press the <kbd>y</kbd> key.
-
-### Markdown does most of what HTML does.
-
-<div class="row">
-  <div class="col-md-6" markdown="1">
-    
-~~~
-*   Use asterisks
-*   to create
-*   bullet lists.
-~~~
-
-  </div>
-  <div class="col-md-6" markdown="1">
-  
-*   Use asterisks
-*   to create
-*   bullet lists.
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6" markdown="1">
-    
-~~~
-1.  Use numbers
-1.  to create
-1.  numbered lists.
-~~~
-
-  </div>
-  <div class="col-md-6" markdown="1">
-
-1.  Use numbers
-1.  to create
-1.  numbered lists.
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6" markdown="1">
-    
-~~~
-*  You can use indents
-	*  To create sublists 
-	*  of the same type
-*  Or sublists
-	1. Of different
-	1. types
-~~~
-
-  </div>
-  <div class="col-md-6" markdown="1">
-  
-*  You can use indents
-	*  To create sublists
-	*  of the same type
-*  Or sublists
-	1. Of different
-	1. types
-  
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6" markdown="1">
-    
-~~~
-# A Level-1 Heading
-~~~
-
-  </div>
-  <div class="col-md-6" markdown="1">
-  
-# A Level-1 Heading
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6" markdown="1">
-    
-~~~
-## A Level-2 Heading (etc.)
-~~~
-
-  </div>
-  <div class="col-md-6" markdown="1">
-  
-## A Level-2 Heading (etc.)
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6" markdown="1">
-    
-~~~
-Line breaks
-don't matter.
-
-But blank lines
-create new paragraphs.
-~~~
-
-  </div>
-  <div class="col-md-6" markdown="1">
-  
-Line breaks
-don't matter.
-
-But blank lines
-create new paragraphs.
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6" markdown="1">
-    
-~~~
-[Create links](http://software-carpentry.org) with `[...](...)`.
-Or use [named links][data_carpentry].
-
-[data_carpentry]: http://datacarpentry.org
-~~~
-
-  </div>
-  <div class="col-md-6" markdown="1">
-  
-[Create links](http://software-carpentry.org) with `[...](...)`.
-Or use [named links][data_carpentry].
-
-[data_carpentry]: http://datacarpentry.org
-
-  </div>
-</div>
-
-> ## Creating Lists in Markdown
->
-> Create a nested list in a Markdown cell in a notebook that looks like this:
->
-> 1.  Get funding.
-> 2.  Do work.
->     *   Design experiment.
->     *   Collect data.
->     *   Analyze.
-> 3.  Write up.
-> 4.  Publish.
-> 
-> > ## Solution
-> >
-> > This challenge integrates both the numbered list and bullet list. 
-> > Note that the bullet list is indented 2 spaces so that it is inline with the items of the numbered list.
-> > ~~~
-> > 1.  Get funding.
-> > 2.  Do work.
-> >     *   Design experiment.
-> >     *   Collect data.
-> >     *   Analyze.
-> > 3.  Write up.
-> > 4.  Publish.
-> > ~~~
-> {: .solution}
-{: .challenge}
-
 > ## More Math
 >
 > What is displayed when a Python cell in a notebook
@@ -492,62 +226,6 @@ Or use [named links][data_carpentry].
 > > 3
 > > ~~~
 > > {: .language-python}
-> {: .solution}
-{: .challenge}
-
-> ## Change an Existing Cell from Code to Markdown
->
-> What happens if you write some Python in a code cell
-> and then you switch it to a Markdown cell?
-> For example,
-> put the following in a code cell:
->
-> ~~~
-> x = 6 * 7 + 12
-> print(x)
-> ~~~
-> {: .language-python}
->
-> And then run it with <kbd>Shift</kbd>+<kbd>Return</kbd> to be sure that it works as a code cell.
-> Now go back to the cell and use <kbd>Esc</kbd> then <kbd>m</kbd> to switch the cell to Markdown
-> and "run" it with <kbd>Shift</kbd>+<kbd>Return</kbd>.
-> What happened and how might this be useful?
-> 
-> > ## Solution
-> >
-> > The Python code gets treated like Markdown text.
-> > The lines appear as if they are part of one contiguous paragraph.
-> > This could be useful to temporarily turn on and off cells in notebooks that get used for multiple purposes. 
-> > ~~~
-> > x = 6 * 7 + 12 print(x)
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
-
-> ## Equations
->
-> Standard Markdown (such as we're using for these notes) won't render equations,
-> but the Notebook will.
-> Create a new Markdown cell
-> and enter the following:
->
-> ~~~
-> $\sum_{i=1}^{N} 2^{-i} \approx 1$
-> ~~~
->
-> (It's probably easier to copy and paste.)
-> What does it display?
-> What do you think the underscore, `_`, circumflex, `^`, and dollar sign, `$`, do?
-> 
-> > ## Solution
-> >
-> > The notebook shows the equation as it would be rendered from LaTeX equation syntax.
-> > The dollar sign, `$`, is used to tell Markdown that the text in between is a LaTeX equation.
-> > If you're not familiar with LaTeX,  underscore, `_`, is used for subscripts and circumflex, `^`, is used for superscripts.
-> > A pair of curly braces, `{` and `}`, is used to group text together so that the statement `i=1` becomes the subscript and `N` becomes the superscript.
-> > Similarly, `-i` is in curly braces to make the whole statement the superscript for `2`.
-> > `\sum` and `\approx` are LaTeX commands for "sum over" and "approximate" symbols. 
 > {: .solution}
 {: .challenge}
 
