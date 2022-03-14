@@ -15,6 +15,18 @@ keypoints:
 - "Use the keyboard and mouse to select and edit cells."
 ---
 
+## Getting the Data
+
+The data we will be using is taken from the
+[gapminder](https://en.wikipedia.org/wiki/Gapminder_Foundation) dataset.
+To obtain it, download and unzip the file
+[python-novice-gapminder-data.zip]({{page.root}}/files/python-novice-gapminder-data.zip).
+In order to follow the presented material, you should put the resulting `data` directory/folder
+in your home folder,
+and you should launch the JupyterLab
+server in the same directory that you put the `data` directory
+(see [Starting JupyterLab]({{ page.root }}/01-run-quit/#starting-jupyterlab)).
+
 There are many ways to write and run Python code, such as using a text editor to create and edit a
 file with Python code in it then running the file at the commandline
 (show file containing Python code).
@@ -138,7 +150,11 @@ A screenshot of the default Menu Bar is provided below.
 ### Left Sidebar
 
 The left sidebar contains a number of commonly used tabs, such as a file browser (showing the 
-contents of the directory where the JupyterLab server was launched), a list of running kernels 
+contents of the directory where the JupyterLab server was launched). **If you don't see the data/
+folder that you downloaded for the workshop, move it there now**. You can hover your mouse over
+the folder path icon to see where to put the data/ folder (if you aren't able to drag and drop).
+
+The sidebar also includes a list of running kernels
 and terminals, the command palette, and a list of open tabs in the main work area. A screenshot of 
 the default Left Side Bar is provided below.
 
