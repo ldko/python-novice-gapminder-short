@@ -133,6 +133,12 @@ memory usage: 208.0+ bytes
     *   We will talk later about null values, which are used to represent missing observations.
 *   Uses 208 bytes of memory.
 
+## Functions attached to objects are called methods
+
+* We created the object named `data`, and because it is a `DataFrame` type of object, it has a method
+  (or function) that gives us information about the dataframe.
+* Methods have parentheses like functions, but come after the variable.
+
 ## The `DataFrame.columns` variable stores information about the dataframe's columns.
 
 *   Note that this is data, *not* a method.  (It doesn't have parentheses.)

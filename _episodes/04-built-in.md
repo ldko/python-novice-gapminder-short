@@ -132,48 +132,6 @@ round(3.712, 1)
 ~~~
 {: .output}
 
-## Functions attached to objects are called methods
-
-* Functions take another form that will be common in the pandas episodes.
-* Methods have parentheses like functions, but come after the variable.
-* Some methods are used for internal Python operations, and are marked with double underlines.
-
-~~~
-my_string = 'Hello world!'  # creation of a string object 
-
-print(len(my_string))       # the len function takes a string as an argument and returns the length of the string
-
-print(my_string.swapcase()) # calling the swapcase method on the my_string object
-
-print(my_string.__len__())  # calling the internal __len__ method on the my_string object, used by len(my_string)
-
-~~~
-{: .language-python}
-
-~~~
-12
-hELLO WORLD!
-12
-~~~
-{: .output}
-
-* You might even see them chained together.  They operate left to right.
-
-~~~
-print(my_string.isupper())          # Not all the letters are uppercase
-print(my_string.upper())            # This capitalizes all the letters
-
-print(my_string.upper().isupper())  # Now all the letters are uppercase
-~~~
-{: .language-python}
-
-~~~
-False
-HELLO WORLD
-True
-~~~
-{: .output}
-
 ## Use the built-in function `help` to get help for a function.
 
 *   Every built-in function has online documentation.
@@ -201,28 +159,14 @@ round(number, ndigits=None)
     * Do this several times to expand the information returned.
 *   Option 2: Type the function name in a cell with a question mark after it. Then run the cell.
 
-> ## What Happens When
+> ## Explore the Python docs!
 >
-> 1. Explain in simple terms the order of operations in the following program:
->    when does the addition happen, when does the subtraction happen,
->    when is each function called, etc.
-> 2. What is the final value of `radiance`?
->
-> ~~~
-> radiance = 1.0
-> radiance = max(2.1, 2.0 + min(radiance, 1.1 * radiance - 0.5))
-> ~~~
-> {: .language-python}
-> > ## Solution
-> > 1. Order of operations:
-> >    1. `1.1 * radiance = 1.1`
-> >    2. `1.1 - 0.5 = 0.6`
-> >    3. `min(radiance, 0.6) = 0.6`
-> >    4. `2.0 + 0.6 = 2.6`
-> >    5. `max(2.1, 2.6) = 2.6`
-> > 2. At the end, `radiance = 2.6`
-> {: .solution}
-{: .challenge}
+> The [official Python documentation](https://docs.python.org/3/) is arguably the most complete
+> source of information about the language. It is available in different languages and contains a lot of useful
+> resources. The [Built-in Functions page](https://docs.python.org/3/library/functions.html) contains a catalogue of
+> all of these functions, including the ones that we've covered in this lesson. Some of these are more advanced and
+> unnecessary at the moment, but others are very simple and useful.
+{: .callout}
 
 > ## Spot the Difference
 >
@@ -276,38 +220,3 @@ round(number, ndigits=None)
 > > {: .error }
 > {: .solution}
 {: .challenge}
-
-> ## Why Not?
->
-> Why is it that `max` and `min` do not return `None` when they are called with no arguments?
->
-> > ## Solution
-> > `max` and `min` return TypeErrors in this case because the correct number of parameters
-> > was not supplied. If it just returned `None`, the error would be much harder to trace as it
-> > would likely be stored into a variable and used later in the program, only to likely throw
-> > a runtime error.
-> {: .solution}
-{: .challenge}
-
-> ## Last Character of a String
->
-> If Python starts counting from zero,
-> and `len` returns the number of characters in a string,
-> what index expression will get the last character in the string `name`?
-> (Note: we will see a simpler way to do this in a later episode.)
->
-> > ## Solution
-> >
-> > `name[len(name) - 1]`
-> {: .solution}
-{: .challenge}
-
-> ## Explore the Python docs!
->
-> The [official Python documentation](https://docs.python.org/3/) is arguably the most complete
-> source of information about the language. It is available in different languages and contains a lot of useful
-> resources. The [Built-in Functions page](https://docs.python.org/3/library/functions.html) contains a catalogue of
-> all of these functions, including the ones that we've covered in this lesson. Some of these are more advanced and 
-> unnecessary at the moment, but others are very simple and useful.
-> 
-{: .callout}
