@@ -25,14 +25,6 @@ keypoints:
 - "Python reports a runtime error when something goes wrong while a program is executing."
 - "Fix syntax errors by reading the source code, and runtime errors by tracing the program's execution."
 ---
-## Use comments to add documentation to programs.
-
-~~~
-# This sentence isn't executed by Python.
-adjustment = 0.5   # Neither is this - anything after '#' is ignored.
-~~~
-{: .language-python}
-
 ## A function may take zero or more arguments.
 
 *   We have seen some functions already --- now let's take a closer look.
