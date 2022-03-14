@@ -19,17 +19,31 @@ keypoints:
 ## Use the Pandas library to do statistics on tabular data.
 
 *   Pandas is a widely-used Python library for statistics, particularly on tabular data.
+*   Not in the standard library, but is already installed with the Anaconda version of Python.
 *   Borrows many features from R's dataframes.
     *   A 2-dimensional table whose columns have names
         and potentially have different data types.
-*   Load it with `import pandas as pd`. The alias pd is commonly used for Pandas.
-*   Read a Comma Separated Values (CSV) data file with `pd.read_csv`.
-    *   Argument is the name of the file to be read.
-    *   Assign result to a variable to store the data that was read.
+
+## Create an alias for a library module when importing it to shorten programs.
+
+*   Use `import ... as ...` to give a library a short *alias* while importing it.
+*   Load pandas with `import pandas as pd`. The alias pd is commonly used for Pandas.
 
 ~~~
 import pandas as pd
+~~~
+{: .language-python}
 
+*   Then refer to items in the library using that shortened name.
+*   Commonly used for libraries that are frequently used or have long names.
+    *   E.g., the `matplotlib` plotting library is often aliased as `mpl`.
+*   But can make programs harder to understand, since readers must learn your program's aliases.
+
+## Read a Comma Separated Values (CSV) data file with `pd.read_csv`.
+*   Argument is the name of the file to be read.
+*   Assign result to a variable to store the data that was read.
+
+~~~
 data = pd.read_csv('data/gapminder_gdp_oceania.csv')
 print(data)
 ~~~
@@ -344,36 +358,6 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 > >    americas.T.tail(n=3).T
 > >    ~~~
 > >    {: .language-python}
-> {: .solution}
-{: .challenge}
-
-
-> ## Reading Files in Other Directories
->
-> The data for your current project is stored in a file called `microbes.csv`,
-> which is located in a folder called `field_data`.
-> You are doing analysis in a notebook called `analysis.ipynb`
-> in a sibling folder called `thesis`:
->
-> ~~~
-> your_home_directory
-> +-- field_data/
-> |   +-- microbes.csv
-> +-- thesis/
->     +-- analysis.ipynb
-> ~~~
-> {: .output}
->
-> What value(s) should you pass to `read_csv` to read `microbes.csv` in `analysis.ipynb`?
-> 
-> > ## Solution
-> > We need to specify the path to the file of interest in the call to `pd.read_csv`. We first need to 'jump' out of
-> > the folder `thesis` using '../' and then into the folder `field_data` using 'field_data/'. Then we can specify the filename `microbes.csv.
-> > The result is as follows:
-> > ~~~
-> > data_microbes = pd.read_csv('../field_data/microbes.csv')
-> > ~~~
-> >{: .language-python}
 > {: .solution}
 {: .challenge}
 
