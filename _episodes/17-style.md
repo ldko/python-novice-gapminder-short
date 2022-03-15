@@ -38,21 +38,6 @@ Some points worth highlighting:
 *   Some groups and organizations follow different style guidelines besides PEP8. For example, the [Google style guide on Python](https://google.github.io/styleguide/pyguide.html) makes slightly different recommendations. Google wrote an application that can help you format your code in either their style or PEP8 called [yapf](https://github.com/google/yapf/).
 *   With respect to coding style, the key is *consistency*. Choose a style for your project be it PEP8, the Google style, or something else and do your best to ensure that you and anyone else you are collaborating with sticks to it. Consistency within a project is often more impactful than the particular style used. A consistent style will make your software easier to read and understand for others and for your future self.
 
-
-## Use assertions to check for internal errors.
-
-Assertions are a simple but powerful method for making sure that the context in which your code is executing is as you expect.
-
-~~~
-def calc_bulk_density(mass, volume):
-    '''Return dry bulk density = powder mass / powder volume.'''
-    assert volume > 0
-    return mass / volume
-~~~
-{: .language-python}
-
-If the assertion is `False`, the Python interpreter raises an `AssertionError` runtime exception. The source code for the expression that failed will be displayed as part of the error message. To ignore assertions in your code run the interpreter with the '-O' (optimize) switch. Assertions should contain only simple checks and never change the state of the program. For example, an assertion should never contain an assignment.
-
 ## Use docstrings to provide builtin help.
 
 If the first thing in a function is a character string that is not assigned directly to a variable, Python attaches it to the function, accessible via the builtin help function. This string that provides documentation is also known as a *docstring*.
@@ -91,33 +76,6 @@ average(values)
 > {: .language-python}
 {: .callout}
 
-> ## What Will Be Shown?
->
-> Highlight the lines in the code below that will be available as online help.
-> Are there lines that should be made available, but won't be?
-> Will any lines produce a syntax error or a runtime error?
->
-> ~~~
-> "Find maximum edit distance between multiple sequences."
-> # This finds the maximum distance between all sequences.
->
-> def overall_max(sequences):
->     '''Determine overall maximum edit distance.'''
-> 
->     highest = 0
->     for left in sequences:
->         for right in sequences:
->             '''Avoid checking sequence against itself.'''
->             if left != right:
->                 this = edit_distance(left, right)
->                 highest = max(highest, this)
-> 
->     # Report.
->     return highest
-> ~~~
-> {: .language-python}
-{: .challenge}
-
 > ## Document This
 >
 > Turn the comment in the following function into a docstring
@@ -143,84 +101,5 @@ average(values)
 > >     return values[1]
 > > ~~~
 > > {: .language-python}
-> {: .solution}
-{: .challenge}
-
-> ## Clean Up This Code
->
-> 1. Read this short program and try to predict what it does.
-> 2. Run it: how accurate was your prediction?
-> 3. Refactor the program to make it more readable.
->    Remember to run it after each change to ensure its behavior hasn't changed.
-> 4. Compare your rewrite with your neighbor's.
->    What did you do the same?
->    What did you do differently, and why?
->
-> ~~~
-> n = 10
-> s = 'et cetera'
-> print(s)
-> i = 0
-> while i < n:
->     # print('at', j)
->     new = ''
->     for j in range(len(s)):
->         left = j-1
->         right = (j+1)%len(s)
->         if s[left]==s[right]: new = new + '-'
->         else: new = new + '*'
->     s=''.join(new)
->     print(s)
->     i += 1
-> ~~~
-> {: .language-python}
->
-> > ## Solution
-> >
-> > Here's one solution.
-> >
-> > ~~~
-> > def string_machine(input_string, iterations):
-> >     """
-> >     Takes input_string and generates a new string with -'s and *'s
-> >     corresponding to characters that have identical adjacent characters
-> >     or not, respectively.  Iterates through this procedure with the resultant
-> >     strings for the supplied number of iterations.
-> >     """
-> >     print(input_string)
-> >     input_string_length = len(input_string)
-> >     old = input_string
-> >     for i in range(iterations):
-> >         new = ''
-> >         # iterate through characters in previous string
-> >         for j in range(input_string_length):
-> >             left = j-1
-> >             right = (j+1) % input_string_length  # ensure right index wraps around
-> >             if old[left] == old[right]:
-> >                 new = new + '-'
-> >             else:
-> >                 new = new + '*'
-> >         print(new)
-> >         # store new string as old
-> >         old = new     
-> >
-> > string_machine('et cetera', 10)
-> > ~~~
-> > {: .language-python}
-> > 
-> > ~~~
-> > et cetera
-> > *****-***
-> > ----*-*--
-> > ---*---*-
-> > --*-*-*-*
-> > **-------
-> > ***-----*
-> > --**---**
-> > *****-***
-> > ----*-*--
-> > ---*---*-
-> > ~~~
-> > {: .output}
 > {: .solution}
 {: .challenge}
