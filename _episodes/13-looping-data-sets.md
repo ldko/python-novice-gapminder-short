@@ -23,7 +23,8 @@ keypoints:
 import pandas as pd
 for filename in ['data/gapminder_gdp_africa.csv', 'data/gapminder_gdp_asia.csv']:
     data = pd.read_csv(filename, index_col='country')
-    print(filename, data.min())
+    print(filename)
+    print(data.min())
 ~~~
 {: .language-python}
 ~~~
@@ -56,9 +57,8 @@ dtype: float64
     *   `?` meaning "match exactly one character"
 *   Python's standard library contains the [`glob`](https://docs.python.org/3/library/glob.html) module to provide pattern matching functionality
 *   The [`glob`](https://docs.python.org/3/library/glob.html) module contains a function also called `glob` to match file patterns
-*   E.g., `glob.glob('*.txt')` matches all files in the current directory 
-    whose names end with `.txt`.
-*   Result is a (possibly empty) list of character strings.
+*   E.g., `glob.glob('*.csv')` matches all files in the current directory
+    whose names end with `.csv`.
 
 ~~~
 import glob
@@ -69,15 +69,6 @@ print('all csv files in data directory:', glob.glob('data/*.csv'))
 all csv files in data directory: ['data/gapminder_all.csv', 'data/gapminder_gdp_africa.csv', \
 'data/gapminder_gdp_americas.csv', 'data/gapminder_gdp_asia.csv', 'data/gapminder_gdp_europe.csv', \
 'data/gapminder_gdp_oceania.csv']
-~~~
-{: .output}
-
-~~~
-print('all PDB files:', glob.glob('*.pdb'))
-~~~
-{: .language-python}
-~~~
-all PDB files: []
 ~~~
 {: .output}
 
