@@ -13,7 +13,6 @@ keypoints:
 - "Variables persist between cells."
 - "Variables must be created before they are used."
 - "Variables can be used in calculations."
-- "Use the built-in function `len` to find the length of a string."
 - "Python is case-sensitive."
 - "Use meaningful variable names."
 ---
@@ -166,20 +165,6 @@ print('Age in three years:', age)
 Age in three years: 45
 ~~~
 {: .output}
-
-## Use the built-in function `len` to find the length of a string.
-
-~~~
-print(len('helium'))
-~~~
-{: .language-python}
-~~~
-6
-~~~
-{: .output}
-
-*   Nested functions are evaluated from the inside out,
-     like in mathematics.
 
 > ## Predicting Values
 >

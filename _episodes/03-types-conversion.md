@@ -94,6 +94,20 @@ Ahmed Walsh
 ~~~
 {: .output}
 
+## Use the built-in function `len` to find the length of a string.
+
+~~~
+print(len('helium'))
+~~~
+{: .language-python}
+~~~
+6
+~~~
+{: .output}
+
+*   Nested functions are evaluated from the inside out,
+     like in mathematics.
+
 ## Strings have a length (but numbers don't).
 
 *   We saw earlier that the built-in function `len` counts the number of characters in a
