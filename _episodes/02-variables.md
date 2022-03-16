@@ -210,3 +210,26 @@ print(len('helium'))
 > > of `'left'`.
 > {: .solution}
 {: .challenge}
+
+## Variables only change value when something is assigned to them.
+
+*   If we make one cell in a spreadsheet depend on another,
+    and update the latter,
+    the former updates automatically.
+*   This does **not** happen in programming languages.
+
+~~~
+variable_one = 1
+variable_two = 5 * variable_one
+variable_one = 2
+print('first is', variable_one, 'and second is', variable_two)
+~~~
+{: .language-python}
+~~~
+first is 2 and second is 5
+~~~
+{: .output}
+
+*   The computer reads the value of `first` when doing the multiplication,
+    creates a new value, and assigns it to `second`.
+*   After that, `second` does not remember where it came from.

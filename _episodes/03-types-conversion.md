@@ -163,29 +163,6 @@ three squared is 9.0
 ~~~
 {: .output}
 
-## Variables only change value when something is assigned to them.
-
-*   If we make one cell in a spreadsheet depend on another,
-    and update the latter,
-    the former updates automatically.
-*   This does **not** happen in programming languages.
-
-~~~
-variable_one = 1
-variable_two = 5 * variable_one
-variable_one = 2
-print('first is', variable_one, 'and second is', variable_two)
-~~~
-{: .language-python}
-~~~
-first is 2 and second is 5
-~~~
-{: .output}
-
-*   The computer reads the value of `first` when doing the multiplication,
-    creates a new value, and assigns it to `second`.
-*   After that, `second` does not remember where it came from.
-
 > ## Choose a Type
 >
 > What type of value (integer, floating point number, or character string)
@@ -207,30 +184,5 @@ first is 2 and second is 5
 > > 4. This will vary! How do you define a specimen's age? whole days since collection (integer)? date and time (string)?
 > > 5. Choose floating point to represent population as large aggregates (eg millions), or integer to represent population in units of individuals.
 > > 6. Floating point number, since an average is likely to have a fractional part.
-> {: .solution}
-{: .challenge}
-
-> ## Arithmetic with Different Types
->
-> Which of the following will return the floating point number `2.0`?
-> Note: there may be more than one right answer.
->
-> ~~~
-> first = 1.0
-> second = "1"
-> third = "1.1"
-> ~~~
-> {: .language-python}
->
-> 1. `first + float(second)`
-> 2. `float(second) + float(third)`
-> 3. `first + int(third)`
-> 4. `first + int(float(third))`
-> 5. `int(first) + int(float(third))`
-> 6. `2.0 * second`
->
-> > ## Solution
-> >
-> > Answer: 1 and 4
 > {: .solution}
 {: .challenge}
