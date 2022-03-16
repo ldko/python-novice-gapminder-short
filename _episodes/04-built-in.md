@@ -11,7 +11,6 @@ objectives:
 - "Correctly call built-in Python functions."
 - "Correctly nest calls to built-in functions."
 - "Use help to display documentation for built-in functions."
-- "Correctly describe situations in which SyntaxError and NameError occur."
 keypoints:
 - "Use comments to add documentation to programs."
 - "A function may take zero or more arguments."
@@ -21,9 +20,6 @@ keypoints:
 - "Use the built-in function `help` to get help for a function."
 - "The Jupyter Notebook has two ways to get help."
 - "Every function returns something."
-- "Python reports a syntax error when it can't understand the source of a program."
-- "Python reports a runtime error when something goes wrong while a program is executing."
-- "Fix syntax errors by reading the source code, and runtime errors by tracing the program's execution."
 ---
 ## A function may take zero or more arguments.
 
