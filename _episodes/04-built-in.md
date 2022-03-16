@@ -3,110 +3,29 @@ title: "Built-in Functions and Help"
 teaching: 15
 exercises: 10
 questions:
-- "How can I use built-in functions?"
-- "How can I find out what they do?"
-- "What kind of errors can occur in programs?"
+- "How can I find out what built-in functions do?"
 objectives:
-- "Explain the purpose of functions."
-- "Correctly call built-in Python functions."
-- "Correctly nest calls to built-in functions."
 - "Use help to display documentation for built-in functions."
 keypoints:
-- "Use comments to add documentation to programs."
-- "A function may take zero or more arguments."
-- "Commonly-used built-in functions include `max`, `min`, and `round`."
 - "Functions may only work for certain (combinations of) arguments."
 - "Functions may have default values for some arguments."
 - "Use the built-in function `help` to get help for a function."
 - "The Jupyter Notebook has two ways to get help."
-- "Every function returns something."
 ---
 ## A function may take zero or more arguments.
 
-*   We have seen some functions already --- now let's take a closer look.
+*   We have seen some functions already (`print`, `len`, `type`, `int`, `str`)
+    --- now let's take a closer look.
 *   An *argument* is a value passed into a function.
 *   `len` takes exactly one.
 *   `int`, `str`, and `float` create a new value from an existing one.
 *   `print` takes zero or more.
 *   `print` with no arguments prints a blank line.
-    *   Must always use parentheses, even if they're empty,
-        so that Python knows a function is being called.
 
-~~~
-print('before')
-print()
-print('after')
-~~~
-{: .language-python}
-~~~
-before
-
-after
-~~~
-{: .output}
-
-## Every function returns something.
-
-*   Every function call produces some result,
-    which is why we can set a function call as the value of the variable.
-*   If the function doesn't have a useful result to return,
-    it usually returns the special value `None`. `None` is a Python
-    object that stands in anytime there is no value.
-
-~~~
-result = print('example')
-print('result of print is', result)
-~~~
-{: .language-python}
-~~~
-example
-result of print is None
-~~~
-{: .output}
-
-## Commonly-used built-in functions include `max`, `min`, and `round`.
-
-*   Use `max` to find the largest value of one or more values.
-*   Use `min` to find the smallest.
-*   Both work on character strings as well as numbers.
-    *   "Larger" and "smaller" use (0-9, A-Z, a-z) to compare letters.
-
-~~~
-print(max(1, 2, 3))
-print(min('a', 'A', '0'))
-~~~
-{: .language-python}
-~~~
-3
-0
-~~~
-{: .output}
-
-*   `ord` is a built-in that returns the Unicode code point for a one-character string, which
-    are the values used in comparing strings.
-
-## Functions may only work for certain (combinations of) arguments.
-
-*   `max` and `min` must be given at least one argument.
-    *   "Largest of the empty set" is a meaningless question.
-*   And they must be given things that can meaningfully be compared.
-
-~~~
-print(max(1, 'a'))
-~~~
-{: .language-python}
-~~~
-TypeError                                 Traceback (most recent call last)
-<ipython-input-52-3f049acf3762> in <module>
-----> 1 print(max(1, 'a'))
-
-TypeError: '>' not supported between instances of 'str' and 'int'
-~~~
-{: .error}
-
-## Functions may have default values for some arguments.
+## Commonly-used built-in function `round` and its arguments.
 
 *   `round` will round off a floating-point number.
+*   Functions may have default values for some arguments.
 *   By default, rounds to zero decimal places.
 
 ~~~
@@ -126,6 +45,21 @@ round(3.712, 1)
 {: .language-python}
 ~~~
 3.7
+~~~
+{: .output}
+
+## Argument's types matter.
+
+~~~
+round(3.712, 1.5)
+~~~
+{: .language-python}
+~~~
+TypeError                                 Traceback (most recent call last)
+<ipython-input-43-95f04cdcdc64> in <module>
+----> 1 round(3.712, 1.5)
+
+TypeError: 'float' object cannot be interpreted as an integer
 ~~~
 {: .output}
 
@@ -164,56 +98,3 @@ round(number, ndigits=None)
 > all of these functions, including the ones that we've covered in this lesson. Some of these are more advanced and
 > unnecessary at the moment, but others are very simple and useful.
 {: .callout}
-
-> ## Spot the Difference
->
-> 1. Predict what each of the `print` statements in the program below will print.
-> 2. Does `max(len(rich), poor)` run or produce an error message?
->    If it runs, does its result make any sense?
->
-> ~~~
-> easy_string = "abc"
-> print(max(easy_string))
-> rich = "gold"
-> poor = "tin"
-> print(max(rich, poor))
-> print(max(len(rich), len(poor)))
-> ~~~
-> {: .language-python}
-> > ## Solution
-> > ~~~
-> > print(max(easy_string))
-> > ~~~
-> > {: .language-python}
-> > ~~~
-> > c
-> > ~~~
-> > {: .output}
-> > ~~~
-> > print(max(rich, poor))
-> > ~~~
-> > {: .language-python}
-> > ~~~
-> > tin
-> > ~~~
-> > {: .output}
-> > ~~~
-> > print(max(len(rich), len(poor)))
-> > ~~~
-> > {: .language-python}
-> > ~~~
-> > 4
-> > ~~~
-> > {: .output}
-> > `max(len(rich), poor)` throws a TypeError. This turns into `max(4, 'tin')` and 
-> > as we discussed earlier a string and integer cannot meaningfully be compared.
-> > ~~~
-> > TypeError                                 Traceback (most recent call last)
-> > <ipython-input-65-bc82ad05177a> in <module>
-> > ----> 1 max(len(rich), poor)
-> > 
-> > TypeError: '>' not supported between instances of 'str' and 'int'
-> > ~~~
-> > {: .error }
-> {: .solution}
-{: .challenge}

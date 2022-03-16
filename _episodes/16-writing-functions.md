@@ -74,8 +74,9 @@ print_date(month=3, day=19, year=1871)
 
 ## Functions may return a result to their caller using `return`.
 
-*   Remember: [every function returns something]({{ page.root }}/04-built-in/).
+*   Every function returns something.
 *   A function that doesn't explicitly `return` a value automatically returns `None`.
+    `None` is a Python object that stands in anytime there is no value.
 
 ~~~
 result = print_date(1871, 3, 19)
