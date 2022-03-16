@@ -154,7 +154,7 @@ A screenshot of the default Menu Bar is provided below.
 The left sidebar contains a number of commonly used tabs, such as a file browser (showing the 
 contents of the directory where the JupyterLab server was launched). **If you don't see the data/
 folder that you downloaded for the workshop, move it there now**. You can hover your mouse over
-the folder path icon to see where to put the data/ folder (if you aren't able to drag and drop).
+the folder path icon to see where to put the data/ folder.
 
 The sidebar also includes a list of running kernels
 and terminals, the command palette, and a list of open tabs in the main work area. A screenshot of 
