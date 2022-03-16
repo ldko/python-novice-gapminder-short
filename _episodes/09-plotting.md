@@ -172,6 +172,50 @@ plt.ylabel('GDP per capita ($)')
 >
 {: .callout}
 
+> ## Saving your plot to a file
+>
+> If you are satisfied with the plot you see you may want to save it to a file,
+> perhaps to include it in a publication. There is a function in the
+> matplotlib.pyplot module that accomplishes this:
+> [savefig](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.savefig.html).
+>
+> The file format saved will automatically be deduced from the file name extension
+> of the file name argument you call savefig with (png, pdf, ps, eps and svg).
+>
+> Note that functions in `plt` refer to a global figure variable
+> and after a figure has been displayed to the screen (e.g. with `plt.show`)
+> matplotlib will make this  variable refer to a new empty figure.
+> Therefore, make sure you call `plt.savefig` before the plot is displayed to
+> the screen, otherwise you may find a file with an empty plot.
+>
+> When using dataframes, data is often generated and plotted to screen in one line,
+> and `plt.savefig` seems not to be a possible approach.
+> One possibility to save the figure to file is then to
+>
+> * save a reference to the current figure in a local variable (with `plt.gcf`)
+> * call the `savefig` class method from that variable.
+> * Modifying our previous example to save the figure:
+>
+> ~~~
+> # Select two countries' worth of data.
+> gdp_australia = data.loc['Australia']
+> gdp_nz = data.loc['New Zealand']
+>
+> # Get a reference to the current figure.
+> fig = plt.gcf()
+> # Plot with differently-colored markers.
+> plt.plot(years, gdp_australia, 'b-', label='Australia')
+> plt.plot(years, gdp_nz, 'g-', label='New Zealand')
+>
+> # Create legend.
+> plt.legend(loc='upper left')
+> plt.xlabel('Year')
+> plt.ylabel('GDP per capita ($)')
+> # Save the figure to a file.
+> fig.savefig('oceania.png')
+> ~~~
+> {: .language-python}
+{: .callout}
 
 ![GDP formatted plot for Australia and New Zealand](../fig/9_gdp_australia_nz_formatted.svg)
 *   Plot a scatter plot correlating the GDP of Australia and New Zealand
@@ -293,43 +337,6 @@ data.T.plot.scatter(x = 'Australia', y = 'New Zealand')
 > > of the plotted points.
 > {: .solution}
 {: .challenge}
-
-> ## Saving your plot to a file
-> 
-> If you are satisfied with the plot you see you may want to save it to a file,
-> perhaps to include it in a publication. There is a function in the
-> matplotlib.pyplot module that accomplishes this:
-> [savefig](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.savefig.html).
-> Calling this function, e.g. with
-> ~~~
-> plt.savefig('my_figure.png')
-> ~~~
-> {: .language-python}
-> 
-> will save the current figure to the file `my_figure.png`. The file format
-> will automatically be deduced from the file name extension (other formats
-> are pdf, ps, eps and svg).
->
-> Note that functions in `plt` refer to a global figure variable
-> and after a figure has been displayed to the screen (e.g. with `plt.show`) 
-> matplotlib will make this  variable refer to a new empty figure.
-> Therefore, make sure you call `plt.savefig` before the plot is displayed to
-> the screen, otherwise you may find a file with an empty plot.
->
-> When using dataframes, data is often generated and plotted to screen in one line,
-> and `plt.savefig` seems not to be a possible approach.
-> One possibility to save the figure to file is then to
->
-> * save a reference to the current figure in a local variable (with `plt.gcf`) 
-> * call the `savefig` class method from that variable.
->
-> ~~~
-> fig = plt.gcf() # get current figure
-> data.plot(kind='bar')
-> fig.savefig('my_figure.png')
-> ~~~
-> {: .language-python}
-{: .callout}
 
 > ## Making your plots accessible
 >
