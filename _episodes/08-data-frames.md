@@ -204,6 +204,7 @@ Poland               False          False          False
 ## Select values or NaN using a Boolean mask.
 
 *   A frame full of Booleans is sometimes called a *mask* because of how it can be used.
+*   We can see the gdp values we have determined to be large:
 
 ~~~
 mask = subset > 10000
@@ -225,7 +226,7 @@ Poland                  NaN             NaN             NaN
 *   Useful because NaNs are ignored by operations like max, min, average, etc.
 
 ~~~
-print(subset[subset > 10000].describe())
+print(subset[mask].describe())
 ~~~
 {: .language-python}
 ~~~
@@ -243,16 +244,15 @@ max      13450.401510    16361.876470    18965.055510
 
 ## Group By: split-apply-combine
 
-Pandas vectorizing methods and grouping operations are features that provide users 
-much flexibility to analyse their data.
+Pandas methods and grouping operations give us flexibility in analyzing data.
 
-For instance, let's say we want to have a clearer view on how the European countries 
-split themselves according to their GDP.
+For example, if we want to have a clearer view on how the European countries
+split themselves according to their GDP:
 
-1.  We may have a glance by splitting the countries in two groups during the years surveyed,
-    those who presented a GDP *higher* than the European average and those with a *lower* GDP.
-2.  We then estimate a *wealthy score* based on the historical (from 1962 to 2007) values,
-    where we account how many times a country has participated in the groups of *lower* or *higher* GDP
+1.  We can split the countries in two groups during the years surveyed,
+    those with a GDP *higher* than the European average and those with a *lower* GDP.
+2.  Then we can estimate a *wealthy score* based on the historical values (from 1962 to 2007),
+    to see how many times a country has participated in the groups of *lower* or *higher* GDP
 
 ~~~
 mask_higher = data > data.mean()
@@ -296,8 +296,9 @@ dtype: float64
 ~~~
 {: .output}
 
-Finally, for each group in the `wealth_score` table, we sum their (financial) contribution
-across the years surveyed using chained methods:
+For each group in the `wealth_score` table (those never in the higher group,
+those always in the higher group, etc.), we can sum their (financial) contribution
+across the years surveyed (notice we are chaining calls to the groupby and sum methods):
 
 ~~~
 data.groupby(wealth_score).sum()
@@ -352,43 +353,6 @@ data.groupby(wealth_score).sum()
 > {: .solution}
 {: .challenge}
 
-> ## Extent of Slicing
->
-> 1.  Do the two statements below produce the same output?
-> 2.  Based on this,
->     what rule governs what is included (or not) in numerical slices and named slices in Pandas?
-> 
-> ~~~
-> print(df.iloc[0:2, 0:2])
-> print(df.loc['Albania':'Belgium', 'gdpPercap_1952':'gdpPercap_1962'])
-> ~~~
-> {: .language-python}
-> 
-> > ## Solution
-> > No, they do not produce the same output! The output of the first statement is:
-> > ~~~
-> >         gdpPercap_1952  gdpPercap_1957
-> > country                                
-> > Albania     1601.056136     1942.284244
-> > Austria     6137.076492     8842.598030
-> > ~~~
-> >{: .output}
-> > The second statement gives:
-> > ~~~
-> >         gdpPercap_1952  gdpPercap_1957  gdpPercap_1962
-> > country                                                
-> > Albania     1601.056136     1942.284244     2312.888958
-> > Austria     6137.076492     8842.598030    10750.721110
-> > Belgium     8343.105127     9714.960623    10991.206760
-> > ~~~
-> >{: .output}
-> > Clearly, the second statement produces an additional column and an additional row compared to the first statement.  
-> > What conclusion can we draw? We see that a numerical slice, 0:2, *omits* the final index (i.e. index 2)
-> > in the range provided,
-> > while a named slice, 'gdpPercap_1952':'gdpPercap_1962', *includes* the final element.
-> {: .solution}
-{: .challenge}
-
 > ## Practice with Selection
 >
 > Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded.
@@ -397,8 +361,6 @@ data.groupby(wealth_score).sum()
 > 1.  GDP per capita for all countries in 1982.
 > 2.  GDP per capita for Denmark for all years.
 > 3.  GDP per capita for all countries for years *after* 1985.
-> 4.  GDP per capita for each country in 2007 as a multiple of 
->     GDP per capita for that country in 1952.
 >
 > > ## Solution
 > > 1:
@@ -419,162 +381,6 @@ data.groupby(wealth_score).sum()
 > > ~~~
 > > {: .language-python}
 > > Pandas is smart enough to recognize the number at the end of the column label and does not give you an error, although no column named `gdpPercap_1985` actually exists. This is useful if new columns are added to the CSV file later.
-> >
-> > 4:
-> > ~~~
-> > data['gdpPercap_2007']/data['gdpPercap_1952']
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
-
-> ## Many Ways of Access
->
-> There are at least two ways of accessing a value or slice of a DataFrame: by name or index.
-> However, there are many others. For example, a single column or row can be accessed either as a `DataFrame`
-> or a `Series` object.
->
-> Suggest different ways of doing the following operations on a DataFrame:
-> 1. Access a single column
-> 2. Access a single row
-> 3. Access an individual DataFrame element
-> 4. Access several columns
-> 5. Access several rows
-> 6. Access a subset of specific rows and columns
-> 7. Access a subset of row and column ranges
->
-{: .challenge}
->
-> > ## Solution
-> > 1\. Access a single column:
-> > ~~~
-> > # by name
-> > data["col_name"]   # as a Series
-> > data[["col_name"]] # as a DataFrame
-> >
-> > # by name using .loc
-> > data.T.loc["col_name"]  # as a Series
-> > data.T.loc[["col_name"]].T  # as a DataFrame
-> >
-> > # Dot notation (Series)
-> > data.col_name
-> >
-> > # by index (iloc)
-> > data.iloc[:, col_index]   # as a Series
-> > data.iloc[:, [col_index]] # as a DataFrame
-> >
-> > # using a mask
-> > data.T[data.T.index == "col_name"].T
-> > ~~~
-> > {: .language-python}
-> >
-> > 2\. Access a single row:
-> > ~~~
-> > # by name using .loc
-> > data.loc["row_name"] # as a Series
-> > data.loc[["row_name"]] # as a DataFrame
-> >
-> > # by name
-> > data.T["row_name"] # as a Series
-> > data.T[["row_name"]].T as a DataFrame
-> >
-> > # by index
-> > data.iloc[row_index]   # as a Series
-> > data.iloc[[row_index]]   # as a DataFrame
-> >
-> > # using mask
-> > data[data.index == "row_name"]
-> > ~~~
-> > {: .language-python}
-> >
-> > 3\. Access an individual DataFrame element:
-> > ~~~
-> > # by column/row names
-> > data["column_name"]["row_name"]         # as a Series
-> >
-> > data[["col_name"]].loc["row_name"]  # as a Series
-> > data[["col_name"]].loc[["row_name"]]  # as a DataFrame
-> >
-> > data.loc["row_name"]["col_name"]  # as a value
-> > data.loc[["row_name"]]["col_name"]  # as a Series
-> > data.loc[["row_name"]][["col_name"]]  # as a DataFrame
-> >
-> > data.loc["row_name", "col_name"]  # as a value
-> > data.loc[["row_name"], "col_name"]  # as a Series. Preserves index. Column name is moved to `.name`.
-> > data.loc["row_name", ["col_name"]]  # as a Series. Index is moved to `.name.` Sets index to column name.
-> > data.loc[["row_name"], ["col_name"]]  # as a DataFrame (preserves original index and column name)
-> >
-> > # by column/row names: Dot notation
-> > data.col_name.row_name
-> >
-> > # by column/row indices
-> > data.iloc[row_index, col_index] # as a value
-> > data.iloc[[row_index], col_index] # as a Series. Preserves index. Column name is moved to `.name`
-> > data.iloc[row_index, [col_index]] # as a Series. Index is moved to `.name.` Sets index to column name.
-> > data.iloc[[row_index], [col_index]] # as a DataFrame (preserves original index and column name)
-> >
-> > # column name + row index
-> > data["col_name"][row_index]
-> > data.col_name[row_index]
-> > data["col_name"].iloc[row_index]
-> >
-> > # column index + row name
-> > data.iloc[:, [col_index]].loc["row_name"]  # as a Series
-> > data.iloc[:, [col_index]].loc[["row_name"]]  # as a DataFrame
-> >
-> > # using masks
-> > data[data.index == "row_name"].T[data.T.index == "col_name"].T
-> > ~~~
-> > {: .language-python}
-> > 4\. Access several columns:
-> > ~~~
-> > # by name
-> > data[["col1", "col2", "col3"]]
-> > data.loc[:, ["col1", "col2", "col3"]]
-> >
-> > # by index
-> > data.iloc[:, [col1_index, col2_index, col3_index]]
-> > ~~~
-> > {: .language-python}
-> > 5\. Access several rows
-> > ~~~
-> > # by name
-> > data.loc[["row1", "row2", "row3"]]
-> >
-> > # by index
-> > data.iloc[[row1_index, row2_index, row3_index]]
-> > ~~~
-> > {: .language-python}
-> > 6\. Access a subset of specific rows and columns
-> > ~~~
-> > # by names
-> > data.loc[["row1", "row2", "row3"], ["col1", "col2", "col3"]]
-> >
-> > # by indices
-> > data.iloc[[row1_index, row2_index, row3_index], [col1_index, col2_index, col3_index]]
-> >
-> > # column names + row indices
-> > data[["col1", "col2", "col3"]].iloc[[row1_index, row2_index, row3_index]]
-> >
-> > # column indices + row names
-> > data.iloc[:, [col1_index, col2_index, col3_index]].loc[["row1", "row2", "row3"]]
-> > ~~~
-> > {: .language-python}
-> > 7\. Access a subset of row and column ranges
-> > ~~~
-> > # by name
-> > data.loc["row1":"row2", "col1":"col2"]
-> >
-> > # by index
-> > data.iloc[row1_index:row2_index, col1_index:col2_index]
-> >
-> > # column names + row indices
-> > data.loc[:, "col1_name":"col2_name"].iloc[row1_index:row2_index]
-> >
-> > # column indices + row names
-> > data.iloc[:, col1_index:col2_index].loc["row1":"row2"]
-> > ~~~
-> > {: .language-python}
 > {: .solution}
 {: .challenge}
 
