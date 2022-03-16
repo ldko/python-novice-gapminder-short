@@ -389,81 +389,6 @@ data.groupby(wealth_score).sum()
 > {: .solution}
 {: .challenge}
 
-> ## Reconstructing Data
->
-> Explain what each line in the following short program does:
-> what is in `first`, `second`, etc.?
->
-> ~~~
-> first = pd.read_csv('data/gapminder_all.csv', index_col='country')
-> second = first[first['continent'] == 'Americas']
-> third = second.drop('Puerto Rico')
-> fourth = third.drop('continent', axis = 1)
-> fourth.to_csv('result.csv')
-> ~~~
-> {: .language-python}
->
-> > ## Solution
-> > Let's go through this piece of code line by line.
-> > ~~~
-> > first = pd.read_csv('data/gapminder_all.csv', index_col='country')
-> > ~~~
-> > {: .language-python}
-> > This line loads the dataset containing the GDP data from all countries into a dataframe called 
-> > `first`. The `index_col='country'` parameter selects which column to use as the 
-> > row labels in the dataframe.  
-> > ~~~
-> > second = first[first['continent'] == 'Americas']
-> > ~~~
-> > {: .language-python}
-> > This line makes a selection: only those rows of `first` for which the 'continent' column matches 
-> > 'Americas' are extracted. Notice how the Boolean expression inside the brackets, 
-> > `first['continent'] == 'Americas'`, is used to select only those rows where the expression is true. 
-> > Try printing this expression! Can you print also its individual True/False elements? 
-> > (hint: first assign the expression to a variable)
-> > ~~~
-> > third = second.drop('Puerto Rico')
-> > ~~~
-> > {: .language-python}
-> > As the syntax suggests, this line drops the row from `second` where the label is 'Puerto Rico'. The 
-> > resulting dataframe `third` has one row less than the original dataframe `second`.
-> > ~~~
-> > fourth = third.drop('continent', axis = 1)
-> > ~~~
-> > {: .language-python}
-> > Again we apply the drop function, but in this case we are dropping not a row but a whole column. 
-> > To accomplish this, we need to specify also the `axis` parameter (we want to drop the second column 
-> > which has index 1).
-> > ~~~
-> > fourth.to_csv('result.csv')
-> > ~~~
-> > {: .language-python}
-> > The final step is to write the data that we have been working on to a csv file. Pandas makes this easy 
-> > with the `to_csv()` function. The only required argument to the function is the filename. Note that the 
-> > file will be written in the directory from which you started the Jupyter or Python session.
-> {: .solution}
-{: .challenge}
-
-> ## Selecting Indices
->
-> Explain in simple terms what `idxmin` and `idxmax` do in the short program below.
-> When would you use these methods?
->
-> ~~~
-> data = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
-> print(data.idxmin())
-> print(data.idxmax())
-> ~~~
-> {: .language-python}
->
-> > ## Solution
-> > For each column in `data`, `idxmin` will return the index value corresponding to each column's minimum;
-> > `idxmax` will do accordingly the same for each column's maximum value.
-> >
-> > You can use these functions whenever you want to get the row index of the minimum/maximum value and not the actual minimum/maximum value.
-> {: .solution}
-{: .challenge}
-
 > ## Practice with Selection
 >
 > Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded.
@@ -691,16 +616,6 @@ data.groupby(wealth_score).sum()
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
-
-
-> ## Interpretation
->
-> Poland's borders have been stable since 1945,
-> but changed several times in the years before then.
-> How would you handle this if you were creating a table of GDP per capita for Poland
-> for the entire twentieth century?
-{: .challenge}
-
 
 [pandas-dataframe]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
 [pandas-series]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
