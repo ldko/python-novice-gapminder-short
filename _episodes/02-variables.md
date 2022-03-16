@@ -32,17 +32,14 @@ keypoints:
     {: .language-python}
 
 *   Variable names
-    * can **only** contain letters, digits, and underscore `_` (typically used to separate words in long variable names)
+    * can **only** contain letters, digits, and underscore `_` (typically used to separate words
+      in long variable names)
     * cannot start with a digit
     * are **case sensitive** (age, Age and AGE are three different variables)
+    *   There are conventions for using upper-case letters at the start of variable names so we
+        will use lower-case letters for now.
 *   Variable names that start with underscores like `__alistairs_real_age` have a special meaning
     so we won't do that until we understand the convention.
-
-## Python is case-sensitive.
-
-*   Python thinks that upper- and lower-case letters are different,
-    so `Name` and `name` are different variables.
-*   There are conventions for using upper-case letters at the start of variable names so we will use lower-case letters for now.
 
 ## Use meaningful variable names.
 
