@@ -24,7 +24,7 @@ keypoints:
 
 ## Commonly-used built-in function `round` and its arguments.
 
-*   `round` will round off a floating-point number.
+*   `round` will round off a floating-point or integer number.
 *   Functions may have default values for some arguments.
 *   By default, rounds to zero decimal places.
 
