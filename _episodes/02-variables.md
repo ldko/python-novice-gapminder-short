@@ -48,7 +48,6 @@ keypoints:
 ~~~
 flabadab = 42
 ewr_422_yY = 'Ahmed'
-print(ewr_422_yY, 'is', flabadab, 'years old')
 ~~~
 {: .language-python}
 
