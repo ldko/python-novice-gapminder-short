@@ -181,37 +181,6 @@ print(len('helium'))
 *   Nested functions are evaluated from the inside out,
      like in mathematics.
 
-> ## Swapping Values
->
-> Fill the table showing the values of the variables in this program
-> *after* each statement is executed.
->
-> ~~~
-> # Command  # Value of x   # Value of y   # Value of swap #
-> x = 1.0    #              #              #               #
-> y = 3.0    #              #              #               #
-> swap = x   #              #              #               #
-> x = y      #              #              #               #
-> y = swap   #              #              #               #
-> ~~~
-> {: .language-python}
-> > ## Solution
-> >
-> > ~~~
-> > # Command  # Value of x   # Value of y   # Value of swap #
-> > x = 1.0    # 1.0          # not defined  # not defined   #
-> > y = 3.0    # 1.0          # 3.0          # not defined   #
-> > swap = x   # 1.0          # 3.0          # 1.0           #
-> > x = y      # 3.0          # 3.0          # 1.0           #
-> > y = swap   # 3.0          # 1.0          # 1.0           #
-> > ~~~
-> > {: .output}
-> >
-> > These three lines exchange the values in `x` and `y` using the `swap`
-> > variable for temporary storage. This is a fairly common programming idiom.
->{: .solution}
-{: .challenge}
-
 > ## Predicting Values
 >
 > What is the final value of `position` in the program below?
@@ -239,57 +208,5 @@ print(len('helium'))
 > > the string value `'left'`. In third line, the `initial` variable is given the
 > > value `'right'`, but the `position` variable retains its string value
 > > of `'left'`.
-> {: .solution}
-{: .challenge}
-
-> ## Challenge
->
-> If you assign `a = 123`,
-> what happens if you try to get the second digit of `a` via `a[1]`?
->
-> > ## Solution
-> > Numbers are not strings or sequences and Python will raise an error if you try to perform an index operation on a
-> > number. In the [next lesson on types and type conversion]({{ page.root }}/03-types-conversion/#convert-numbers-and-strings)
-> > we will learn more about types and how to convert between different types. If you want the Nth digit of a number you
-> > can convert it into a string using the `str` built-in function and then perform an index operation on that string.
-> >
-> > ~~~
-> > a = 123
-> > print(a[1])
-> > ~~~
-> > {: .language-python}
-> > ~~~
-> > TypeError: 'int' object is not subscriptable
-> > ~~~
-> > {: .error}
-> >
-> >
-> > ~~~
-> > a = str(123)
-> > print(a[1])
-> > ~~~
-> > {: .language-python}
-> > ~~~
-> > 2
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
-> ## Choosing a Name
->
-> Which is a better variable name, `m`, `min`, or `minutes`?
-> Why?
-> Hint: think about which code you would rather inherit
-> from someone who is leaving the lab:
->
-> 1. `ts = m * 60 + s`
-> 2. `tot_sec = min * 60 + sec`
-> 3. `total_seconds = minutes * 60 + seconds`
->
-> > ## Solution
-> >
-> > `minutes` is better because `min` might mean something like "minimum"
-> > (and actually is an existing built-in function in Python that we will cover later).
 > {: .solution}
 {: .challenge}
