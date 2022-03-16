@@ -167,12 +167,10 @@ print(str(1) + '2')
 *   The result of the following calculation with an `int` and `float` is a `float`.
 
 ~~~
-print('half is', 1 / 2.0)
 print('three squared is', 3.0 ** 2)
 ~~~
 {: .language-python}
 ~~~
-half is 0.5
 three squared is 9.0
 ~~~
 {: .output}
