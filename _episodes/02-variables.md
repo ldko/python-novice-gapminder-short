@@ -47,7 +47,6 @@ keypoints:
 
 ~~~
 flabadab = 42
-ewr_422_yY = 'Ahmed'
 ~~~
 {: .language-python}
 
@@ -146,8 +145,7 @@ SyntaxError: EOL while scanning string literal
 > {: .language-python}
 >
 > If you execute this in order, the first cell will give an error. However, if you run the first cell *after* the second
-> cell it will print out `1`. To prevent confusion, it can be helpful to use the `Kernel` -> `Restart & Run All` option which
-> clears the interpreter and runs everything from a clean slate going top to bottom.
+> cell it will print out `1`.
 {: .callout}
 
 ## Variables can be used in calculations.
